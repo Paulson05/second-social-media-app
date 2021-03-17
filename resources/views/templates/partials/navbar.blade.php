@@ -20,7 +20,7 @@
             <ul class="nav navbar-nav ml-auto">
                                 @if (Auth::check())
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">{{Auth::user()->getFirstNameOrUsername()}}</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('profile.index', ['username'=>Auth::user()->username])}}">{{Auth::user()->getFirstNameOrUsername()}}</a></li>
 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('auth.logout')}}">sign out</a></li>
