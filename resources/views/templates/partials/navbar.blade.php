@@ -22,7 +22,7 @@
 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('profile.index', ['username'=>Auth::user()->username])}}">{{Auth::user()->getFirstNameOrUsername()}}</a></li>
 
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('profile.edit')}}">update profile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('auth.logout')}}">sign out</a></li>
                                 @else
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('auth.signup')}}">Sign up</a></li>

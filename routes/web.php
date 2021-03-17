@@ -17,6 +17,8 @@ Route::prefix('home')->group(function (){
     Route::get('signout', [AuthController::class, 'logOut'])->name('auth.logout');
     Route::get('result', [SearchController::class, 'getResult'])->name('search.result');
     Route::get('profile/{username}', [ProfileController::class, 'getProfile'])->name('profile.index');
+    Route::get('edit/profile', [ProfileController::class, 'getEdit'])->name('profile.edit');
+    Route::post('postedit/profile', [ProfileController::class, 'postEdit'])->name('profile.postedit');
 });
 
 

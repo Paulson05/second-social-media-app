@@ -5,5 +5,9 @@
     </a>
     <div class="media-body">
          <h3 class="media-heading"><a href="{{route('profile.index', ['username' => $user->username])}}">{{$user->getNameOrUsername()}}</a></h3>
+  @if($user->location)
+            <p class="m-2">  Location<strong>:{{$user->location}}</strong></p>
+
+        @endif
     </div>
 </div>
