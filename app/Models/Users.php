@@ -2,11 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as  AuthenticatableContract;
+// use Illuminate\Contracts\Auth\CanResetPassword as  CanResetPasswordContract;
 
-class Users extends Model
+
+
+class Users extends  Model implements AuthenticatableContract
 {
+    use Authenticatable;
+    use HasFactory;
    protected $table = 'users';
     protected $fillable = [
         'username',
@@ -17,4 +24,28 @@ class Users extends Model
         'location',
     ];
     use HasFactory;
+    public function getName(){
+        if($this->first_name && $this->last_name){
+            return "{$this->first_name} {$this->last_name}";
+        }
+
+        if($this->first_name){
+            return $this->first_name;
+        }
+
+        return null;
+    }
+
+    public function getNameOrUsername(){
+        return $this->getName() ?: $this->username;
+    }
+
+    public function getFirstNameOrUsername(){
+        return $this->first_name ?: $this->username;
+    }
+    public function getAvatarUrl(){
+        return "https://www.gravatar.com/avatar/{{md5(this->email)}}?d=mm&s=40
+
+        ";
+    }
 }

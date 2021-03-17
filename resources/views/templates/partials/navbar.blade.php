@@ -6,21 +6,23 @@
 
 
 
-            <form class="navbar-form mr-auto"  role="search" action="">
+            <form class="navbar-form mr-auto"  role="search" action="{{route('search.result')}}">
 
                 <ul class="nav navbar-nav">
                     <li ><a class="nav-link js-scroll-trigger" href="">Timeline</a></li>
                     <li ><a class="nav-link js-scroll-trigger" href="">Friends</a></li>
                     <li><input class = "nav-item form-control" type="text" name="query" id="" placeholder="find people"></li>
-                    <li><button type="submit" class="nav-item btn btn-sm">search</button></li>
+                    <li><button type="submit" class="nav-item btn btn-sm pt-1 ml-3">search</button></li>
                 </ul>
 
             </form>
                         @endif
             <ul class="nav navbar-nav ml-auto">
                                 @if (Auth::check())
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href=""></a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
+
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">{{Auth::user()->getFirstNameOrUsername()}}</a></li>
+
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('auth.logout')}}">sign out</a></li>
                                 @else
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{route('auth.signup')}}">Sign up</a></li>
