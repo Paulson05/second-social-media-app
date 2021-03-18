@@ -10,7 +10,7 @@
 
                 <ul class="nav navbar-nav">
                     <li ><a class="nav-link js-scroll-trigger" href="">Timeline</a></li>
-                    <li ><a class="nav-link js-scroll-trigger" href="">Friends</a></li>
+                    <li ><a class="nav-link js-scroll-trigger" href="{{route('friends.index')}}">Friends</a></li>
                     <li><input class = "nav-item form-control" type="text" name="query" id="" placeholder="find people"></li>
                     <li><button type="submit" class="nav-item btn btn-sm pt-1 ml-3">search</button></li>
                 </ul>

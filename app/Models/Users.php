@@ -48,4 +48,24 @@ class Users extends  Model implements AuthenticatableContract
 
         ";
     }
+
+    public function friendsOfMine(){
+        return $this->belongsToMany('App\Models\Users', 'friends', 'user_id', 'friends_id');
+    }
+    public function friendOf(){
+
+
+        return $this->belongsToMany('App\Models\Users', 'friends', 'friends_id', 'user_id');
+    }
+    public function friends(){
+
+
+        return $this->friendsOfMine()->wherePivot('accepted', true)->get()->
+        merge($this->friendOf()->wherePivot('accepted', true)->get());
+    }
+    public function friendRequests(){
+
+
+        return $this->friendsOfMine()->wherePivot('accepted', false)->get();
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
@@ -19,6 +20,7 @@ Route::prefix('home')->group(function (){
     Route::get('profile/{username}', [ProfileController::class, 'getProfile'])->name('profile.index');
     Route::get('edit/profile', [ProfileController::class, 'getEdit'])->name('profile.edit');
     Route::post('postedit/profile', [ProfileController::class, 'postEdit'])->name('profile.postedit');
+    Route::get('friends',[FriendsController::class, 'getIndex'])->name('friends.index');
 });
 
 
