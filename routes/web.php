@@ -21,6 +21,7 @@ Route::prefix('home')->group(function (){
     Route::get('edit/profile', [ProfileController::class, 'getEdit'])->name('profile.edit');
     Route::post('postedit/profile', [ProfileController::class, 'postEdit'])->name('profile.postedit');
     Route::get('friends',[FriendsController::class, 'getIndex'])->name('friends.index');
+
 });
 
 
