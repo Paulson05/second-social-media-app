@@ -15,7 +15,7 @@
                         <label for="email" style="color: white">Email address:</label>
                         <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email" value = "{{Request::old('email') ?: ''}}">
                         @error('email')
-                        <span class="form-text text-danger">{{$errors->first('email')}}</span>
+                        <span class="form-text text-danger">{{$message}}</span>
                         @enderror
 
                     </div>
@@ -23,14 +23,14 @@
                         <label for="pwd" style="color: white">username:</label>
                         <input type="text" class="form-control" placeholder="Enter username"  name ="username"  id="pwd" value = "{{Request::old('username') ?: ''}}" >
                         @error('username')
-                        <span class="form-text text-danger">{{$errors->first('username')}}</span>
+                        <span class="form-text text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="pwd" style="color: white">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" value = "{{Request::old('password') ?: ''}}">
                         @error('password')
-                        <span class="form-text text-danger">{{$errors->first('password')}}</span>
+                        <span class="form-text text-danger">{{$message}}</span>
                         @enderror
                     </div>
 
