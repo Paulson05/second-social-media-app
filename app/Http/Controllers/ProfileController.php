@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Users;
 class ProfileController extends Controller
 {
     public  function getProfile($username){
-        $user = Users::where('username', $username)->first();
+
+       $user = Users::where('username', $username)->first();
 
         if (!$user) {
             abort(404);

@@ -44,9 +44,7 @@ class Users extends  Model implements AuthenticatableContract
         return $this->first_name ?: $this->username;
     }
     public function getAvatarUrl(){
-        return "https://www.gravatar.com/avatar/{{md5(this->email)}}?d=mm&s=40
-
-        ";
+        return "https://www.gravatar.com/avatar/{{md5(this->email)}}?d=mm&s=40";
     }
 
     public function friendsOfMine(){

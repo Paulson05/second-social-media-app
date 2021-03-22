@@ -13,22 +13,28 @@
                         <h2 style="color: white">Sign up</h2>
                         <div class="row">
                             <div class="col-lg-8">
-                                <form action="" method= "POST">
+                                <form action="{{route('auth.postsignup')}}" method= "POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email" style="color: white">Email address:</label>
-                                        <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email"  required>
-                                        {{-- @if($errors-has('email '))
-                                            <span class="help-block">{{ $error->first('username') }}</span>
-                                        @endif --}}
+                                        <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email" >
+                                        @error('email')
+                                        <span>{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                         <label for="pwd" style="color: white">username:</label>
-                                        <input type="text" class="form-control" placeholder="Enter username"  name ="username"  id="pwd" required>
+                                        <input type="text" class="form-control" placeholder="Enter username"  name ="username"  id="pwd" >
+                                        @error('username')
+                                        <span  class="form-text text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                         <label for="pwd" style="color: white">Password:</label>
-                                        <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" required value="">
+                                        <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" >
+                                       @error('password')
+                                        <span class="form-text text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group form-check">

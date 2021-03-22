@@ -10,7 +10,7 @@
                 <form action="{{route('auth.postlogin')}}" method= "POST">
                     @csrf
                     <div class="form-group">
-                        <label for="email" style="color: white">Email address:</label>
+                        <label class="text-danger">Email address:</label>
                         <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email" value = "{{Request::old('email') ?: ''}}">
                         @error('email')
                         <span class="form-text text-danger">{{$errors->first('email')}}</span>
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="pwd" style="color: white">Password:</label>
+                        <label class="text-danger">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" value = "{{Request::old('password') ?: ''}}">
                         @error('password')
                         <span class="form-text text-danger">{{$errors->first('password')}}</span>

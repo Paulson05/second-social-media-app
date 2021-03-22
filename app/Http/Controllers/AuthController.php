@@ -22,7 +22,7 @@ class AuthController extends Controller
             ]);
         $array=collect($request->only(['email','username']))->put('password',bcrypt($request->password))->all();
         Users::create($array);
-        return redirect()->back()->with('info', 'your are signed in');
+        return redirect()->back()->with('info', 'your are successfully register');
     }
     public function getLogin(){
         return view ('Auth.login');
