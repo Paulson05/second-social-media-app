@@ -47,6 +47,10 @@ class Users extends  Model implements AuthenticatableContract
         return "https://www.gravatar.com/avatar/{{md5(this->email)}}?d=mm&s=40";
     }
 
+       public  function statuses(){
+        return $this->hasMany(Status::class, 'user_id');
+       }
+
     public function friendsOfMine(){
         return $this->belongsToMany('App\Models\Users', 'friends', 'user_id', 'friends_id');
     }

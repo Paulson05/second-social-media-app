@@ -26,7 +26,8 @@ Route::prefix('home')->group(function (){
 
     Route::get('friends',[FriendsController::class, 'getIndex'])->name('friends.index');
 
-    Route::post('timeline', [StatusController::class, 'postStatus'])->name('timeline.index');
+    Route::post('timeline/status', [StatusController::class, 'postStatus'])->name('timeline.index');
+    Route::post('status/{statusId}/reply', [StatusController::class, 'postReply'])->name('status.reply');
 });
 
 
