@@ -23,6 +23,11 @@ class Status extends Model
 
     public function replies()
     {
-        return $this->hasMany('App\Models\Status',  'parent_id');
+        return $this->hasMany(Status::class,  'parent_id');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class,  'likeable');
     }
 }
