@@ -20,6 +20,6 @@ class Like extends Model
 
     public function user()
     {
-        $this->belongsTo('App\Models\Users',  'user_id');
+        $this->belongsTo(Users::class,  'user_id');
     }
 }
