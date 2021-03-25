@@ -28,6 +28,8 @@ Route::prefix('home')->group(function (){
 
     Route::post('timeline/status', [StatusController::class, 'postStatus'])->name('timeline.index');
     Route::post('status/{statusId}/reply', [StatusController::class, 'postReply'])->name('status.reply');
+    Route::get('status/{statusId}/like', [StatusController::class, 'getLike'])->name('status.like');
+
 });
 
 

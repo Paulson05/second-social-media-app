@@ -17,10 +17,11 @@
                             <p class="list-inline">{{$status->body  }}</p>
                             <ul class="list-inline">
                                 <span>{{ $status->created_at->diffForHumans()}}</span>
-                                {{--                                    @if($status->user->id !== Auth::user()->id)--}}
-                                {{--                                        <span><a href="{{ route('status.like', ['statusid' =>$status->id]) }}">likes</a></span/>--}}
-                                {{--                                        <span>{{ $status->likes->count() }} {{ \Illuminate\Support\Str::plural('like', $status->likes->count()) }}</span>--}}
-                                {{--                                    @endif--}}
+                                        @if($status->user->id !== Auth::user()->id)
+
+                                            <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}" style="color: red;">likes</a></span>
+                                            <span style="color: red;" >{{ $reply->likes->count() }} {{\Illuminate\Support\Str::plural('like', $reply->likes->count()) }} </span>
+                                        @endif
 
                             </ul>
 
@@ -35,11 +36,11 @@
                                                 <p class="list-inline">{{$reply->body  }}</p>
                                                 <ul class="list-inline">
                                                     <span>{{ $reply->created_at->diffForHumans()}}</span>
-                                                    {{--                                                @if($status->user->id !== Auth::user()->id)--}}
+                                                                                                    @if($status->user->id !== Auth::user()->id)
 
-                                                    {{--                                                    <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}">likes</a></span>--}}
-                                                    {{--                                                    <span>{{ $reply->likes->count() }} {{\Illuminate\Support\Str::plural('like', $reply->likes->count()) }}</span>--}}
-                                                    {{--                                                @endif--}}
+                                                                                                        <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}">likes</a></span>
+                                                                                                        <span>{{ $reply->likes->count() }} {{\Illuminate\Support\Str::plural('like', $reply->likes->count()) }}</span>
+                                                                                                    @endif
                                                 </ul>
 
 

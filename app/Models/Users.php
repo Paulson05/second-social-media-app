@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Status;
+use App\Models\Like;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -47,9 +48,13 @@ class Users extends  Model implements AuthenticatableContract
         return "https://www.gravatar.com/avatar/{{md5(this->email)}}?d=mm&s=40";
     }
 
-       public  function statuses(){
-        return $this->hasMany(Status::class, 'user_id');
-       }
+
+    public function statuses(){
+        return $this->hasMany(Status::class,  'user_id');
+    }
+    public function likes(){
+        return $this->hasMany('App\Models\Like',  'user_id');
+    }
 
     public function friendsOfMine(){
         return $this->belongsToMany(Users::class, 'friends', 'user_id', 'friends_id');

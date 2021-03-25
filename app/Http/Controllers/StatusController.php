@@ -54,5 +54,33 @@ class StatusController extends Controller
 
     }
 
+    public function getLike($statusId)
+    {
+         dd($statusId);
+
+        $status =Status::find($statusId);
+        if (!$status) {
+
+            return redirect()->route('index');
+
+        }
+
+        if(!Auth::user()->isFriendsWith($status->user)){
+            return redirect()->route('index');
+        }
+
+
+        if(Auth::user()->hasLikedStatus($status)){
+            return redirect()->back();
+        }
+
+        $like =$status->likes()->create([
+            'user_id'=>auth()->id(),
+        ]);
+        return redirect()->back();
+    }
+
+
+
 
 }
