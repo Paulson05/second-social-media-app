@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Models\Users;
-use Auth;
+
+use Illuminate\Support\Facades\Auth;
+
 class StatusController extends Controller
 {
     public function postStatus(Request $request){
@@ -70,14 +72,13 @@ class StatusController extends Controller
         }
 
 
+
         if(Auth::user()->hasLikedStatus($status)){
 
             return redirect()->back();
         }
 
-        $like =$status->likes()->create([
-            'user_id'=>auth()->id(),
-        ]);
+        $status->likes()->create(['user_id'=>auth()->id()]);
         return redirect()->back();
     }
 

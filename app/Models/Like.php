@@ -9,7 +9,7 @@ class Like extends Model
 {
     use HasFactory;
     protected $table  = 'likeable';
-
+    protected $guarded = [];
 
     public function likeable()
     {

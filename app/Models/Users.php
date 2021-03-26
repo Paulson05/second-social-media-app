@@ -53,7 +53,10 @@ class Users extends  Model implements AuthenticatableContract
     public function statuses(){
         return $this->hasMany(Status::class,  'user_id');
     }
-
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Like',  'user_id');
+    }
 
     public function friendsOfMine(){
         return $this->belongsToMany(Users::class, 'friends', 'user_id', 'friends_id');
@@ -108,12 +111,9 @@ class Users extends  Model implements AuthenticatableContract
 
 
     }
-    public function likes()
-    {
-        return $this->morphMany(Like::class,  'likeable');
-    }
+
     public function hasLikedStatus(Status $status){
-        return (bool)$status->likes
+        return (bool)  $status->likes
              ->where('user_id', $this->id)->count();
     }
 
