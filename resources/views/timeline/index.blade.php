@@ -31,6 +31,12 @@
                                 <ul class="list-inline">
                                     <span>{{ $status->created_at->diffForHumans()}}</span>
 
+                                             @if($status->user->id !== Auth::user()->id)
+                                        <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}" style="color: red;">likes</a></span>
+                                        <span style="color: red;" ></span>
+                                                 @endif
+
+
 
                                 </ul>
 
@@ -45,6 +51,14 @@
                                                    <p class="list-inline">{{$reply->body  }}</p>
                                                    <ul class="list-inline">
                                                        <span>{{ $reply->created_at->diffForHumans()}}</span>
+
+
+
+                                                            @if($status->user->id !== Auth::user()->id)
+                                                           <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}" style="color: red;">likes</a></span>
+                                                           <span style="color: red;" > </span>
+                                                                @endif
+
 
                                                    </ul>
 

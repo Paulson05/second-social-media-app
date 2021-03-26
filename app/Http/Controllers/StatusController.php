@@ -36,12 +36,12 @@ class StatusController extends Controller
 
         $status = Status::notReply()->find($statusId);
         if (!$status){
-            return redirect()-> route('index');
+            return redirect()-> route('timeline.index');
 
         }
 
         if(!Auth::user()->isFriendsWith($status->user) && Auth::user()->id !== $status->user->id){
-            return redirect()->route('index');
+            return redirect()->route('timeline.index');
         }
 
         $reply = Status::create([
@@ -54,23 +54,24 @@ class StatusController extends Controller
 
     }
 
-    public function getLike($statusId)
+    public function getLike($statusid)
     {
-         dd($statusId);
 
-        $status =Status::find($statusId);
+
+        $status =Status::find($statusid);
         if (!$status) {
 
-            return redirect()->route('index');
+            return redirect()->back();
 
         }
 
         if(!Auth::user()->isFriendsWith($status->user)){
-            return redirect()->route('index');
+            return redirect()->back();
         }
 
 
         if(Auth::user()->hasLikedStatus($status)){
+
             return redirect()->back();
         }
 

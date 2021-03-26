@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     use HasFactory;
-    protected $table  = 'Likeable';
+    protected $table  = 'likeable';
 
 
     public function likeable()
@@ -20,6 +20,6 @@ class Like extends Model
 
     public function user()
     {
-        $this->belongsTo(Users::class,  'user_id');
+        return $this->belongsTo(Users::class,  'user_id');
     }
 }
