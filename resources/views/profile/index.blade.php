@@ -19,7 +19,7 @@
                                 <span>{{ $status->created_at->diffForHumans()}}</span>
                                         @if($status->user->id !== Auth::user()->id)
 
-                                            <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}" style="color: red;">likes</a></span>
+                                            <span><a href="" style="color: red;">likes</a></span>
                                             <span style="color: red;" >{{ $reply->likes->count() }} {{\Illuminate\Support\Str::plural('like', $reply->likes->count()) }} </span>
                                         @endif
 
